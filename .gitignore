@@ -1,3 +1,5 @@
+.env
+client/
 # Logs
 logs
 *.log
