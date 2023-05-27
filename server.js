@@ -23,10 +23,10 @@ app.use(
 
 app.use(express.json());
 
-app.use("https://super-mart-server.vercel.app/api/v1/auth", authRoute);
-app.use("https://super-mart-server.vercel.app/api/v1/category", categoryRoutes);
-app.use("https://super-mart-server.vercel.app/api/v1/product", productRoutes);
-app.use("https://super-mart-server.vercel.app/api/v1/orders", orderRoutes);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/category", categoryRoutes);
+app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/orders", orderRoutes);
 
 // const storeItems = new Map([
 //   [1, { priceInCents: 10000, name: "Learn React Today" }],
@@ -144,6 +144,8 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log(`Server Running on port ${process.env.PORT}`);
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+  console.log(`Server Running on port ${port}`);
 });
