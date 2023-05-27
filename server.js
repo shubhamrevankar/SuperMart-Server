@@ -20,13 +20,13 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
-  
+
 app.use(express.json());
 
-app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/category", categoryRoutes);
-app.use("/api/v1/product", productRoutes);
-app.use("/api/v1/orders", orderRoutes);
+app.use("https://super-mart-server.vercel.app/api/v1/auth", authRoute);
+app.use("https://super-mart-server.vercel.app/api/v1/category", categoryRoutes);
+app.use("https://super-mart-server.vercel.app/api/v1/product", productRoutes);
+app.use("https://super-mart-server.vercel.app/api/v1/orders", orderRoutes);
 
 // const storeItems = new Map([
 //   [1, { priceInCents: 10000, name: "Learn React Today" }],
