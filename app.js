@@ -13,7 +13,8 @@ const stripe = Stripe(`${process.env.STRIPE_SECRET_KEY}`);
 const app = express();
 dotenv.config();
 
-connectDB();
+// console.log(process.env.REACT_APP_MONGO_URL);
+connectDB(process.env.REACT_APP_MONGO_URL);
 
 app.use(cors());
 
@@ -130,8 +131,8 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: item.quantity,
         };
       }),
-      success_url: `/success`,
-      cancel_url: `/failure`,
+      success_url: `${process.env.CLIENT_URL}/success`,
+      cancel_url: `${process.env.CLIENT_URL}/failure`,
     });
 
     res.json({ url: session.url });
